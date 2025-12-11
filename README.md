@@ -17,8 +17,7 @@ Half adder is a combinational circuit that performs simple addition of two binar
 
 Sum = A’B+AB’ =A ⊕ B Carry = AB
 
-image
-
+Screenshot 2025-12-10 221703
 Figure -01 HALF ADDER
 
 Half Subtractor
@@ -27,8 +26,7 @@ The half-subtractor is a combinational circuit which is used to perform subtract
 
 Diff = A’B+AB’ =A ⊕ B Borrow = A’B
 
-image
-
+Screenshot 2025-12-10 221948
 Figure -02 HALF Subtractor
 
 Truthtable
@@ -47,7 +45,37 @@ For different input combinations generate the timing diagram.
 
 Program:
 
-/* Program to design a half adder and full adder circuit and verify its truth table in quartus using Verilog programming.
+
+------------------------------------------------
+Half Adder
+------------------------------------------------
+// Half Adder in Verilog
+module half_adder (
+    input  wire a, b,     // Inputs
+    output wire sum,      // Sum output
+    output wire carry     // Carry output
+);
+
+    // Logic equations
+    assign sum   = a ^ b;   // XOR for sum
+    assign carry = a & b;   // AND for carry
+
+endmodule
+
+-----------------------------------------
+Half Sub
+-------------------------------------
+// Half Subtractor in Verilog
+module half_subtractor (
+    input  wire a, b,         // Inputs
+    output wire diff, borrow  // Outputs
+);
+
+    // Logic equations
+    assign diff   = a ^ b;     // XOR for difference
+    assign borrow = ~a & b;    // Borrow when a < b
+
+endmodule
 
 Developed by: A.Asin banu RegisterNumber: 25009969
 
@@ -55,4 +83,4 @@ RTL Schematic
 
 Output/TIMING Waveform
 
-Result:Thus, the Half Adder and Half Subtractor circuits are designed and the truth tables is verified using Quartus software.
+Result: Thus, the HalfAdder and Half Subtractor circuits are designed and the truth tables is verified using Quartus software.
